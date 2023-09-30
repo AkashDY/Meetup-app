@@ -1,27 +1,21 @@
+import Head from "next/head";
 import MeetupList from "../components/meetups/MeetupList";
 import { MongoClient } from "mongodb";
-
-// const DUMMY_MEETUPS = [
-//   {
-//     id: "m1",
-//     title: "First Meetup",
-//     image:
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
-//     address: "Some address 5, 12345 some city",
-//     description: "This is a first meetup",
-//   },
-//   {
-//     id: "m2",
-//     title: "Second Meetup",
-//     image:
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
-//     address: "Some address 10, 1345 some city",
-//     description: "This is a second meetup",
-//   },
-// ];
+import { Fragment } from "react";
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of active react meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps() {
